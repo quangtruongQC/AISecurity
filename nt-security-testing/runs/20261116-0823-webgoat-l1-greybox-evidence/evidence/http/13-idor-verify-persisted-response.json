@@ -1,0 +1,9 @@
+{
+  "assignment" : "IDORViewOtherProfile",
+  "attemptWasMade" : true,
+  "feedback" : "Well done, you found someone else's profile",
+  "feedbackArgs" : null,
+  "lessonCompleted" : true,
+  "output" : "{role=3, color=brown, size=large, name=Buffalo Bill, userId=2342388}",
+  "outputArgs" : null
+}

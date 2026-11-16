@@ -1,0 +1,8 @@
+Name,Length,LastWriteTime
+"directory-listing.csv",223,"2026-11-16T17:12:37.447714+07:00"
+"execution-log.txt",11944,"2026-11-16T17:17:21.691900+07:00"
+"http/01-webgoat-root.txt",1266,"2026-11-16T17:12:37.235497+07:00"
+"http/02-login-route-raw.txt",2599,"2026-11-16T17:15:52.687947+07:00"
+"http/03-lesson-menu-raw.txt",790,"2026-11-16T17:16:22.429899+07:00"
+"http/04-login-post-redacted.txt",1362,"2026-11-16T17:17:20.541073+07:00"
+"http/05-lesson-menu-authenticated-redacted.txt",11005,"2026-11-16T17:17:21.598601+07:00"

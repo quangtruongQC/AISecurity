@@ -1,0 +1,6 @@
+HTTP/1.1 302 
+Set-Cookie: JSESSIONID=ECA5A647ACC0FBB543DE69391B1BADA7; Path=/WebGoat; HttpOnly
+Location: http://10.242.10.31:8007/WebGoat/welcome.mvc
+Content-Length: 0
+Date: Mon, 16 Nov 2026 10:57:21 GMT
+

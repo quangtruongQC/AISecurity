@@ -1,0 +1,9 @@
+{
+  "assignment" : "InsecureDeserializationTask",
+  "attemptWasMade" : true,
+  "feedback" : "That is not the VulnerableTaskHolder object. However a plain String is harmless. Let's try again with the right object.",
+  "feedbackArgs" : null,
+  "lessonCompleted" : false,
+  "output" : null,
+  "outputArgs" : null
+}

@@ -1,0 +1,9 @@
+{
+  "assignment" : "JWTVotesEndpoint",
+  "attemptWasMade" : true,
+  "feedback" : "Only an admin user can reset the votes",
+  "feedbackArgs" : null,
+  "lessonCompleted" : false,
+  "output" : null,
+  "outputArgs" : null
+}

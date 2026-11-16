@@ -1,0 +1,32 @@
+Source: Chrome DevTools Console panel (browser session, authenticated as xtbuiquang)
+Lesson: CrossSiteScripting (stored) — http://10.242.10.31:8007/WebGoat/start.mvc#lesson/CrossSiteScriptingStored.lesson/2
+Captured: 2026-11-16T01:36Z (console messages since last navigation to this lesson page)
+
+Console log (verbatim, in order):
+[error]   Uncaught TypeError: Cannot read properties of undefined (reading 'ui')
+[log]     about to create app router
+[log]     initialize goat app router
+[issue]   Deprecated feature used (count: 1)
+[verbose] [DOM] Input elements should have autocomplete attributes...
+[issue]   An element doesn't have an autocomplete attribute (count: 1)
+[warn]    WARNING: Missing translation for key: "You are now logged in as tom. Please proceed."
+[warn]    WARNING: Missing translation for key: ""
+[warn]    on view profile activated
+[log]     entry
+[log]     phoneHome invoked
+[warn]    unit test me
+[log]     phone home said {"assignment":"DOMCrossSiteScripting","attemptWasMade":true,"feedback":"Congratulations. You have successfully completed the assignment.","feedbackArgs":null,"lessonCompleted":true,"output":"phoneHome Response is 1086046098","outputArgs":null}
+
+Analysis: Simply NAVIGATING to the "Cross Site Scripting (stored)" lesson page (no interaction
+beyond loading the comment list) caused the browser console to log "phoneHome invoked" followed by
+a server round-trip response confirming the WebGoat callback function executed. This happened
+because a comment previously stored via POST /WebGoat/CrossSiteScriptingStored/stored-xss with the
+body {"text":"<script>webgoat.customjs.phoneHome()</script>"} (see
+04-sqli-request.txt sibling file 14-stored-xss-retrieve-response.json, comment dated
+2026-11-16 00:44:51 by user xtbuiquang) is rendered WITHOUT HTML-encoding and the browser parses and
+executes the <script> tag as a live DOM element every time any user (not just the original poster)
+views the comment thread — confirming stored XSS with real script execution (F-08). The accessibility
+snapshot of the comments list (see 15-stored-xss-page-screenshot.png) also shows this comment renders
+with NO visible text content (the script tag is not shown as text, consistent with it being parsed as
+an executable element rather than escaped/displayed text), while adjacent comments with deliberately
+non-executable content ("This comment is safe", "Comment for Unit Testing") render their text normally.

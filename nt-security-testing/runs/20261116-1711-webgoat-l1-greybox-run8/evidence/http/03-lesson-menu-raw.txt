@@ -1,0 +1,22 @@
+*   Trying 10.242.10.31:8007...
+* Established connection to 10.242.10.31 (10.242.10.31 port 8007) from 192.168.249.38 port 57235 
+* using HTTP/1.x
+> GET /WebGoat/service/lessonmenu.mvc HTTP/1.1
+> Host: 10.242.10.31:8007
+> User-Agent: curl/8.21.0
+> Accept: */*
+> 
+* Request completely sent off
+< HTTP/1.1 302 
+< Set-Cookie: JSESSIONID=33ABC10DAC6BD086E078CF70963940E1; Path=/WebGoat; HttpOnly
+< Location: http://10.242.10.31:8007/WebGoat/login
+< Content-Length: 0
+< Date: Mon, 16 Nov 2026 10:16:22 GMT
+< 
+* Connection #0 to host 10.242.10.31:8007 left intact
+HTTP/1.1 302 
+Set-Cookie: JSESSIONID=33ABC10DAC6BD086E078CF70963940E1; Path=/WebGoat; HttpOnly
+Location: http://10.242.10.31:8007/WebGoat/login
+Content-Length: 0
+Date: Mon, 16 Nov 2026 10:16:22 GMT
+

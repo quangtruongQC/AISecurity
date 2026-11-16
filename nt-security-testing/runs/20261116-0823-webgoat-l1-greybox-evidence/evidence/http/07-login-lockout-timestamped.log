@@ -1,0 +1,5 @@
+﻿[2026-11-16T01:32:04.512Z] Attempt 1 (wrong password 'WrongPass1'): HTTP/1.1 302 
+[2026-11-16T01:32:06.362Z] Attempt 2 (wrong password 'WrongPass2'): HTTP/1.1 302 
+[2026-11-16T01:32:08.215Z] Attempt 3 (wrong password 'WrongPass3'): HTTP/1.1 302 
+[2026-11-16T01:32:10.023Z] Attempt 4 (wrong password 'WrongPass4'): HTTP/1.1 302 
+[2026-11-16T01:32:11.899Z] Attempt 5 (correct password): HTTP/1.1 302  ; Location: http://10.242.10.31:8007/WebGoat/welcome.mvc

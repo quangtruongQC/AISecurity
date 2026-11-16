@@ -1,0 +1,1 @@
+Error: Command '['curl.exe', '-s', '-X', 'POST', '-d', 'action=delete&target=user&id=2', '-H', 'Origin: http://attacker.com', '-H', 'Referer: http://attacker.com', 'http://10.242.10.31:8007/csrf/submit']' timed out after 10 seconds

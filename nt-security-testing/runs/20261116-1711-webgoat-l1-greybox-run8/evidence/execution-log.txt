@@ -1,0 +1,441 @@
+﻿Run 8 authorized read-only availability retry started: 2026-11-16T17:12:36.6515343+07:00
+
+[2026-11-16T17:12:36.7836456+07:00] GET http://10.242.10.31:8007/WebGoat/
+curl exit code: 0
+*   Trying 10.242.10.31:8007...
+* Established connection to 10.242.10.31 (10.242.10.31 port 8007) from 192.168.249.38 port 50312 
+* using HTTP/1.x
+> GET /WebGoat/ HTTP/1.1
+System.Management.Automation.RemoteException
+> Host: 10.242.10.31:8007
+System.Management.Automation.RemoteException
+> User-Agent: curl/8.21.0
+System.Management.Automation.RemoteException
+> Accept: */*
+System.Management.Automation.RemoteException
+> 
+System.Management.Automation.RemoteException
+* Request completely sent off
+< HTTP/1.1 302 
+System.Management.Automation.RemoteException
+< Set-Cookie: JSESSIONID=47065623B21A92D8C87A98A85C9FFA18; Path=/WebGoat; HttpOnly
+System.Management.Automation.RemoteException
+< Location: http://10.242.10.31:8007/WebGoat/login
+System.Management.Automation.RemoteException
+< Content-Length: 0
+System.Management.Automation.RemoteException
+< Date: Mon, 16 Nov 2026 10:12:37 GMT
+System.Management.Automation.RemoteException
+< 
+System.Management.Automation.RemoteException
+* Connection #0 to host 10.242.10.31:8007 left intact
+HTTP/1.1 302 
+Set-Cookie: JSESSIONID=47065623B21A92D8C87A98A85C9FFA18; Path=/WebGoat; HttpOnly
+Location: http://10.242.10.31:8007/WebGoat/login
+Content-Length: 0
+Date: Mon, 16 Nov 2026 10:12:37 GMT
+
+
+RESULT: Availability check completed; inspect the response before any further request.
+Run ended: 2026-11-16T17:12:37.3258207+07:00
+
+[2026-11-16T17:15:51.9253980+07:00] GET http://10.242.10.31:8007/WebGoat/login
+curl exit code: 0
+Transcript: evidence/http/02-login-route-raw.txt
+
+[2026-11-16T17:16:21.8388000+07:00] GET http://10.242.10.31:8007/WebGoat/service/lessonmenu.mvc (previously verified WebGoat lesson-menu route)
+curl exit code: 0
+Transcript: evidence/http/03-lesson-menu-raw.txt
+
+[2026-11-16T17:17:20.0375159+07:00] POST http://10.242.10.31:8007/WebGoat/login using the intake test account; password redacted from saved evidence.
+Login curl exit code: 0
+Saved password-redacted request/response trace: evidence/http/04-login-post-redacted.txt
+HTTP/1.1 302 
+Set-Cookie: JSESSIONID=F5D2D0300868512028A7A87A367557D8; Path=/WebGoat; HttpOnly
+Location: http://10.242.10.31:8007/WebGoat/welcome.mvc
+Content-Length: 0
+Date: Mon, 16 Nov 2026 10:17:20 GMT
+
+
+[2026-11-16T17:17:21.0779146+07:00] GET http://10.242.10.31:8007/WebGoat/service/lessonmenu.mvc with the session from the successful login.
+Lesson-menu curl exit code: 0
+Saved request/response trace: evidence/http/05-lesson-menu-authenticated-redacted.txt
+HTTP/1.1 200 
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 16 Nov 2026 10:17:21 GMT
+
+[ {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/WebGoatIntroduction.lesson",
+    "name" : "webgoat.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/WebWolfIntroduction.lesson",
+    "name" : "webwolf.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.introduction",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/HttpBasics.lesson",
+    "name" : "1.http-basics.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/HttpProxies.lesson",
+    "name" : "2.http-proxies.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/ChromeDevTools.lesson",
+    "name" : "3.chrome-dev-tools.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/CIA.lesson",
+    "name" : "4.cia.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/LessonTemplate.lesson",
+    "name" : "lesson-template.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/OpenRedirect.lesson",
+    "name" : "openredirect.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.general",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/HijackSession.lesson",
+    "name" : "hijacksession.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/IDOR.lesson",
+    "name" : "idor.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/MissingFunctionAC.lesson",
+    "name" : "missing-function-access-control.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/SpoofCookie.lesson",
+    "name" : "spoofcookie.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.a1",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/Cryptography.lesson",
+    "name" : "6.crypto.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.a2",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/SqlInjection.lesson",
+    "name" : "1.sql.injection.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/SqlInjectionAdvanced.lesson",
+    "name" : "2.sql.advanced.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/SqlInjectionMitigations.lesson",
+    "name" : "3.sql.mitigation.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/CrossSiteScripting.lesson",
+    "name" : "4.xss.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/CrossSiteScriptingStored.lesson",
+    "name" : "5.xss-stored.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/CrossSiteScriptingMitigation.lesson",
+    "name" : "6.xss-mitigation.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/PathTraversal.lesson",
+    "name" : "path-traversal-title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.a3",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/CSRF.lesson",
+    "name" : "csrf.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/SecurityMisconfiguration.lesson",
+    "name" : "securitymisconfiguration.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/XXE.lesson",
+    "name" : "xxe.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.a5",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/VulnerableComponents.lesson",
+    "name" : "vulnerable-components.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.a6",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/AuthBypass.lesson",
+    "name" : "auth-bypass.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/InsecureLogin.lesson",
+    "name" : "insecure-login.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/JWT.lesson",
+    "name" : "jwt.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/PasswordReset.lesson",
+    "name" : "password-reset.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/SecurePasswords.lesson",
+    "name" : "secure-passwords.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.a7",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/InsecureDeserialization.lesson",
+    "name" : "insecure-deserialization.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.a8",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/LogSpoofing.lesson",
+    "name" : "logging.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.a9",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/SSRF.lesson",
+    "name" : "ssrf.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.a10",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/BypassRestrictions.lesson",
+    "name" : "bypass-restrictions.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/ClientSideFiltering.lesson",
+    "name" : "client.side.filtering.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/HtmlTampering.lesson",
+    "name" : "html-tampering.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.client.side",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+}, {
+  "children" : [ {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/ChallengeIntro.lesson",
+    "name" : "challenge0.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/Challenge1.lesson",
+    "name" : "challenge1.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/Challenge5.lesson",
+    "name" : "challenge5.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/Challenge7.lesson",
+    "name" : "challenge7.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  }, {
+    "children" : [ ],
+    "complete" : false,
+    "link" : "#lesson/Challenge8.lesson",
+    "name" : "challenge8.title",
+    "ranking" : 0,
+    "type" : "LESSON"
+  } ],
+  "complete" : false,
+  "link" : null,
+  "name" : "category.challenge",
+  "ranking" : 0,
+  "type" : "CATEGORY"
+} ]
+
+Enumeration step ended: 2026-11-16T17:17:21.6689921+07:00

@@ -1,0 +1,18 @@
+*   Trying 10.242.10.31:8007...
+* Established connection to 10.242.10.31 (10.242.10.31 port 8007) from 192.168.249.11 port 65529 
+* using HTTP/1.x
+> POST /WebGoat/JWT/votings HTTP/1.1
+> Host: 10.242.10.31:8007
+> User-Agent: curl/8.21.0
+> Accept: */*
+> Cookie: JSESSIONID=67E5C39D860A97C142ECAE035B0ECD8F
+> Cookie: access_token=eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3OTU2NTk1MDAsImFkbWluIjoiZmFsc2UiLCJ1c2VyIjoiSmVycnkifQ.dNnFS8lKuo2d_0iJQ560f3yO9T2jykaeaAWBYKHBCKZkIgYTO8Hx7krOaXmEwJEhneeewl_D5Nh9iDfPFqcwYA
+> 
+* Request completely sent off
+< HTTP/1.1 200 
+< Content-Type: application/json
+< Content-Length: 219
+< Date: Mon, 16 Nov 2026 02:21:01 GMT
+< 
+{ [219 bytes data]
+* Connection #0 to host 10.242.10.31:8007 left intact

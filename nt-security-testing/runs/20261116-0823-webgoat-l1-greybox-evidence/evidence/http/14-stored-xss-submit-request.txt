@@ -1,0 +1,21 @@
+*   Trying 10.242.10.31:8007...
+* Established connection to 10.242.10.31 (10.242.10.31 port 8007) from 192.168.249.11 port 63478 
+* using HTTP/1.x
+> POST /WebGoat/CrossSiteScriptingStored/stored-xss HTTP/1.1
+> Host: 10.242.10.31:8007
+> User-Agent: curl/8.21.0
+> Accept: */*
+> Cookie: JSESSIONID=EE4FDB36E933CD9005A4F465CF749CB5
+> Content-Type: application/json
+> Content-Length: 60
+> 
+} [60 bytes data]
+* upload completely sent off: 60 bytes
+< HTTP/1.1 500 
+< Content-Type: application/json
+< Transfer-Encoding: chunked
+< Date: Mon, 16 Nov 2026 01:35:56 GMT
+< Connection: close
+< 
+{ [1169 bytes data]
+* shutting down connection #0

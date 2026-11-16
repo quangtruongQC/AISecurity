@@ -1,0 +1,7 @@
+﻿/actuator => HTTP/1.1 404 
+/actuator/health => HTTP/1.1 404 
+/actuator/env => HTTP/1.1 404 
+/actuator/heapdump => HTTP/1.1 404 
+/actuator/beans => HTTP/1.1 404 
+/actuator/mappings => HTTP/1.1 404 
+/actuator/info => HTTP/1.1 404 

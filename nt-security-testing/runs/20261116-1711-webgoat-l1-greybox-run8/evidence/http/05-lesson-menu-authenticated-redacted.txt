@@ -1,0 +1,169 @@
+17:17:21.230000 *   Trying 10.242.10.31:8007...
+17:17:21.410000 * Established connection to 10.242.10.31 (10.242.10.31 port 8007) from 192.168.249.38 port 61334 
+17:17:21.410000 * using HTTP/1.x
+17:17:21.410000 => Send header, 164 bytes (0xa4)
+0000: GET /WebGoat/service/lessonmenu.mvc HTTP/1.1
+002e: Host: 10.242.10.31:8007
+0047: User-Agent: curl/8.21.0
+0060: Accept: */*
+006d: Cookie: JSESSIONID=F5D2D0300868512028A7A87A367557D8
+00a2: 
+17:17:21.410000 * Request completely sent off
+17:17:21.570000 <= Recv header, 15 bytes (0xf)
+0000: HTTP/1.1 200 
+17:17:21.570000 <= Recv header, 32 bytes (0x20)
+0000: Content-Type: application/json
+17:17:21.570000 <= Recv header, 28 bytes (0x1c)
+0000: Transfer-Encoding: chunked
+17:17:21.570000 <= Recv header, 37 bytes (0x25)
+0000: Date: Mon, 16 Nov 2026 10:17:21 GMT
+17:17:21.570000 <= Recv header, 2 bytes (0x2)
+0000: 
+17:17:21.570000 <= Recv data, 1188 bytes (0x4a4)
+0000: 2000
+0006: [ {.  "children" : [ {.    "children" : [ ],.    "complete" : fa
+0046: lse,.    "link" : "#lesson/WebGoatIntroduction.lesson",.    "nam
+0086: e" : "webgoat.title",.    "ranking" : 0,.    "type" : "LESSON". 
+00c6:  }, {.    "children" : [ ],.    "complete" : false,.    "link" :
+0106:  "#lesson/WebWolfIntroduction.lesson",.    "name" : "webwolf.tit
+0146: le",.    "ranking" : 0,.    "type" : "LESSON".  } ],.  "complete
+0186: " : false,.  "link" : null,.  "name" : "category.introduction",.
+01c6:   "ranking" : 0,.  "type" : "CATEGORY".}, {.  "children" : [ {. 
+0206:    "children" : [ ],.    "complete" : false,.    "link" : "#less
+0246: on/HttpBasics.lesson",.    "name" : "1.http-basics.title",.    "
+0286: ranking" : 0,.    "type" : "LESSON".  }, {.    "children" : [ ],
+02c6: .    "complete" : false,.    "link" : "#lesson/HttpProxies.lesso
+0306: n",.    "name" : "2.http-proxies.title",.    "ranking" : 0,.    
+0346: "type" : "LESSON".  }, {.    "children" : [ ],.    "complete" : 
+0386: false,.    "link" : "#lesson/ChromeDevTools.lesson",.    "name" 
+03c6: : "3.chrome-dev-tools.title",.    "ranking" : 0,.    "type" : "L
+0406: ESSON".  }, {.    "children" : [ ],.    "complete" : false,.    
+0446: "link" : "#lesson/CIA.lesson",.    "name" : "4.cia.title",.    "
+0486: ranking" : 0,.    "type" : "LE
+17:17:21.570000 <= Recv data, 3906 bytes (0xf42)
+0000: SSON".  }, {.    "children" : [ ],.    "complete" : false,.    "
+0040: link" : "#lesson/LessonTemplate.lesson",.    "name" : "lesson-te
+0080: mplate.title",.    "ranking" : 0,.    "type" : "LESSON".  }, {. 
+00c0:    "children" : [ ],.    "complete" : false,.    "link" : "#less
+0100: on/OpenRedirect.lesson",.    "name" : "openredirect.title",.    
+0140: "ranking" : 0,.    "type" : "LESSON".  } ],.  "complete" : false
+0180: ,.  "link" : null,.  "name" : "category.general",.  "ranking" : 
+01c0: 0,.  "type" : "CATEGORY".}, {.  "children" : [ {.    "children" 
+0200: : [ ],.    "complete" : false,.    "link" : "#lesson/HijackSessi
+0240: on.lesson",.    "name" : "hijacksession.title",.    "ranking" : 
+0280: 0,.    "type" : "LESSON".  }, {.    "children" : [ ],.    "compl
+02c0: ete" : false,.    "link" : "#lesson/IDOR.lesson",.    "name" : "
+0300: idor.title",.    "ranking" : 0,.    "type" : "LESSON".  }, {.   
+0340:  "children" : [ ],.    "complete" : false,.    "link" : "#lesson
+0380: /MissingFunctionAC.lesson",.    "name" : "missing-function-acces
+03c0: s-control.title",.    "ranking" : 0,.    "type" : "LESSON".  }, 
+0400: {.    "children" : [ ],.    "complete" : false,.    "link" : "#l
+0440: esson/SpoofCookie.lesson",.    "name" : "spoofcookie.title",.   
+0480:  "ranking" : 0,.    "type" : "LESSON".  } ],.  "complete" : fals
+04c0: e,.  "link" : null,.  "name" : "category.a1",.  "ranking" : 0,. 
+0500:  "type" : "CATEGORY".}, {.  "children" : [ {.    "children" : [ 
+0540: ],.    "complete" : false,.    "link" : "#lesson/Cryptography.le
+0580: sson",.    "name" : "6.crypto.title",.    "ranking" : 0,.    "ty
+05c0: pe" : "LESSON".  } ],.  "complete" : false,.  "link" : null,.  "
+0600: name" : "category.a2",.  "ranking" : 0,.  "type" : "CATEGORY".},
+0640:  {.  "children" : [ {.    "children" : [ ],.    "complete" : fal
+0680: se,.    "link" : "#lesson/SqlInjection.lesson",.    "name" : "1.
+06c0: sql.injection.title",.    "ranking" : 0,.    "type" : "LESSON". 
+0700:  }, {.    "children" : [ ],.    "complete" : false,.    "link" :
+0740:  "#lesson/SqlInjectionAdvanced.lesson",.    "name" : "2.sql.adva
+0780: nced.title",.    "ranking" : 0,.    "type" : "LESSON".  }, {.   
+07c0:  "children" : [ ],.    "complete" : false,.    "link" : "#lesson
+0800: /SqlInjectionMitigations.lesson",.    "name" : "3.sql.mitigation
+0840: .title",.    "ranking" : 0,.    "type" : "LESSON".  }, {.    "ch
+0880: ildren" : [ ],.    "complete" : false,.    "link" : "#lesson/Cro
+08c0: ssSiteScripting.lesson",.    "name" : "4.xss.title",.    "rankin
+0900: g" : 0,.    "type" : "LESSON".  }, {.    "children" : [ ],.    "
+0940: complete" : false,.    "link" : "#lesson/CrossSiteScriptingStore
+0980: d.lesson",.    "name" : "5.xss-stored.title",.    "ranking" : 0,
+09c0: .    "type" : "LESSON".  }, {.    "children" : [ ],.    "complet
+0a00: e" : false,.    "link" : "#lesson/CrossSiteScriptingMitigation.l
+0a40: esson",.    "name" : "6.xss-mitigation.title",.    "ranking" : 0
+0a80: ,.    "type" : "LESSON".  }, {.    "children" : [ ],.    "comple
+0ac0: te" : false,.    "link" : "#lesson/PathTraversal.lesson",.    "n
+0b00: ame" : "path-traversal-title",.    "ranking" : 0,.    "type" : "
+0b40: LESSON".  } ],.  "complete" : false,.  "link" : null,.  "name" :
+0b80:  "category.a3",.  "ranking" : 0,.  "type" : "CATEGORY".}, {.  "c
+0bc0: hildren" : [ {.    "children" : [ ],.    "complete" : false,.   
+0c00:  "link" : "#lesson/CSRF.lesson",.    "name" : "csrf.title",.    
+0c40: "ranking" : 0,.    "type" : "LESSON".  }, {.    "children" : [ ]
+0c80: ,.    "complete" : false,.    "link" : "#lesson/SecurityMisconfi
+0cc0: guration.lesson",.    "name" : "securitymisconfiguration.title",
+0d00: .    "ranking" : 0,.    "type" : "LESSON".  }, {.    "children" 
+0d40: : [ ],.    "complete" : false,.    "link" : "#lesson/XXE.lesson"
+0d80: ,.    "name" : "xxe.title",.    "ranking" : 0,.    "type" : "LES
+0dc0: SON".  } ],.  "complete" : false,.  "link" : null,.  "name" : "c
+0e00: ategory.a5",.  "ranking" : 0,.  "type" : "CATEGORY".}, {.  "chil
+0e40: dren" : [ {.    "children" : [ ],.    "complete" : false,.    "l
+0e80: ink" : "#lesson/VulnerableComponents.lesson",.    "name" : "vuln
+0ec0: erable-components.title",.    "ranking" : 0,.    "type" : "LESSO
+0f00: N".  } ],.  "complete" : false,.  "link" : null,.  "name" : "cat
+0f40: eg
+17:17:21.581000 <= Recv data, 1302 bytes (0x516)
+0000: ory.a6",.  "ranking" : 0,.  "type" : "CATEGORY".}, {.  "children
+0040: " : [ {.    "children" : [ ],.    "complete" : false,.    "link"
+0080:  : "#lesson/AuthBypass.lesson",.    "name" : "auth-bypass.title"
+00c0: ,.    "ranking" : 0,.    "type" : "LESSON".  }, {.    "children"
+0100:  : [ ],.    "complete" : false,.    "link" : "#lesson/InsecureLo
+0140: gin.lesson",.    "name" : "insecure-login.title",.    "ranking" 
+0180: : 0,.    "type" : "LESSON".  }, {.    "children" : [ ],.    "com
+01c0: plete" : false,.    "link" : "#lesson/JWT.lesson",.    "name" : 
+0200: "jwt.title",.    "ranking" : 0,.    "type" : "LESSON".  }, {.   
+0240:  "children" : [ ],.    "complete" : false,.    "link" : "#lesson
+0280: /PasswordReset.lesson",.    "name" : "password-reset.title",.   
+02c0:  "ranking" : 0,.    "type" : "LESSON".  }, {.    "children" : [ 
+0300: ],.    "complete" : false,.    "link" : "#lesson/SecurePasswords
+0340: .lesson",.    "name" : "secure-passwords.title",.    "ranking" :
+0380:  0,.    "type" : "LESSON".  } ],.  "complete" : false,.  "link" 
+03c0: : null,.  "name" : "category.a7",.  "ranking" : 0,.  "type" : "C
+0400: ATEGORY".}, {.  "children" : [ {.    "children" : [ ],.    "comp
+0440: lete" : false,.    "link" : "#lesson/InsecureDeserialization.les
+0480: son",.    "name" : "insecure-deserialization.title",.    "rankin
+04c0: g" : 0,.    "type" : "LESSON".  } ],.  "complete" : false,.  "li
+0500: nk" : null,.  "name" :
+17:17:21.581000 <= Recv data, 2325 bytes (0x915)
+0000:  "category.a8",.  "ranking" : 0,.  "type" : "CATEGORY".}, {.  "c
+0040: hildren" : [ {.    "children" : [ ],.    "complete" : false,.   
+0080:  "link" : "#lesson/LogSpoofing.lesson",.    "name" : "logging.ti
+00c0: tle",.    "ranking" : 0,.    "type" : "LESSON".  } ],.  "complet
+0100: e" : false,.  "link" : null,.  "name" : "category.a9",.  "rankin
+0140: g" : 0,.  "type" : "CATEGORY".}, {.  "children" : [ {.    "child
+0180: ren" : [ ],.    "complete" : false,.    "link" : "#lesson/SSRF.l
+01c0: esson",.    "name" : "ssrf.title",.    "ranking" : 0,.    "type"
+0200:  : "LESSON".  } ],.  "complete" : false,.  "link" : null,.  "nam
+0240: e" : "category.a10",.  "ranking" : 0,.  "type" : "CATEGORY".}, {
+0280: .  "children" : [ {.    "children" : [ ],.    "complete" : false
+02c0: ,.    "link" : "#lesson/BypassRestrictions.lesson",.    "name" :
+0300:  "bypass-restrictions.title",.    "ranking" : 0,.    "type" : "L
+0340: ESSON".  }, {.    "children" : [ ],.    "complete" : false,.    
+0380: "link" : "#lesson/ClientSideFiltering.lesson",.    "name" : "cli
+03c0: ent.side.filtering.title",.    "ranking" : 0,.    "type" : "LESS
+0400: ON".  }, {.    "children" : [ ],.    "complete" : false,.    "li
+0440: nk" : "#lesson/HtmlTampering.lesson",.    "name" : "html-tamperi
+0480: ng.title",.    "ranking" : 0,.    "type" : "LESSON".  } ],.  "co
+04c0: mplete" : false,.  "link" : null,.  "name" : "category.client.si
+0500: de",.  "ranking" : 0,.  "type" : "CATEGORY".}, {.  "children" : 
+0540: [ {.    "children" : [ ],.    "complete" : false,.    "link" : "
+0580: #lesson/ChallengeIntro.lesson",.    "name" : "challenge0.title",
+05c0: .    "ranking" : 0,.    "type" : "LESSON".  }, {.    "children" 
+0600: : [ ],.    "complete" : false,.    "link" : "#lesson/Challenge1.
+0640: lesson",.    "name" : "challenge1.title",.    "ranking" : 0,.   
+0680:  "type" : "LESSON".  }, {.    "children" : [ ],.    "complete" :
+06c0:  false,.    "link" : "#lesson/Challenge5.lesson",.    "name" : "
+0700: challenge5
+070c: 1fd
+0711: .title",.    "ranking" : 0,.    "type" : "LESSON".  }, {.    "ch
+0751: ildren" : [ ],.    "complete" : false,.    "link" : "#lesson/Cha
+0791: llenge7.lesson",.    "name" : "challenge7.title",.    "ranking" 
+07d1: : 0,.    "type" : "LESSON".  }, {.    "children" : [ ],.    "com
+0811: plete" : false,.    "link" : "#lesson/Challenge8.lesson",.    "n
+0851: ame" : "challenge8.title",.    "ranking" : 0,.    "type" : "LESS
+0891: ON".  } ],.  "complete" : false,.  "link" : null,.  "name" : "ca
+08d1: tegory.challenge",.  "ranking" : 0,.  "type" : "CATEGORY".} ]
+0910: 0
+0913: 
+17:17:21.584000 * Connection #0 to host 10.242.10.31:8007 left intact

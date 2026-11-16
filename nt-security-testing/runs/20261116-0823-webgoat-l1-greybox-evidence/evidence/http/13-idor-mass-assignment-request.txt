@@ -1,0 +1,20 @@
+*   Trying 10.242.10.31:8007...
+* Established connection to 10.242.10.31 (10.242.10.31 port 8007) from 192.168.249.11 port 63472 
+* using HTTP/1.x
+> PUT /WebGoat/IDOR/profile/2342388 HTTP/1.1
+> Host: 10.242.10.31:8007
+> User-Agent: curl/8.21.0
+> Accept: */*
+> Cookie: JSESSIONID=D1CD0E45FEC6AD10A560D0BE074337EF
+> Content-Type: application/json
+> Content-Length: 93
+> 
+} [93 bytes data]
+* upload completely sent off: 93 bytes
+< HTTP/1.1 200 
+< Content-Type: application/json
+< Content-Length: 299
+< Date: Mon, 16 Nov 2026 01:35:14 GMT
+< 
+{ [299 bytes data]
+* Connection #0 to host 10.242.10.31:8007 left intact

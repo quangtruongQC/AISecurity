@@ -1,0 +1,9 @@
+{
+  "assignment" : "SSRFTask1",
+  "attemptWasMade" : true,
+  "feedback" : "You rocked the SSRF!",
+  "feedbackArgs" : null,
+  "lessonCompleted" : true,
+  "output" : "<img class=\\\"image\\\" alt=\\\"Jerry\\\" src=\\\"images\\/jerry.png\\\" width=\\\"25%\\\" height=\\\"25%\\\">",
+  "outputArgs" : null
+}

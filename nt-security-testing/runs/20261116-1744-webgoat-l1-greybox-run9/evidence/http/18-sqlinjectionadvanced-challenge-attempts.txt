@@ -1,0 +1,47 @@
+Lesson: SQL Injection (advanced) / assignments SqlInjectionChallenge (register) + SqlInjectionChallengeLogin (login)
+("Goal: Can you log in as Tom?") - Run #9, 2026-11-16T11:19-11:22Z
+
+### Attempt 1: direct login-bypass injection
+POST /WebGoat/SqlInjectionAdvanced/login
+Body: username_login=Tom'+--+&password_login=anything
+Response: {"feedback":"Wrong username or password. Try again.","lessonCompleted":false}
+
+POST /WebGoat/SqlInjectionAdvanced/login
+Body: username_login='+OR+'1'%3D'1'+--+&password_login=anything
+Response: {"feedback":"Wrong username or password. Try again.","lessonCompleted":false}
+-> Both classic bypass payloads failed identically to a wrong-username attempt - no SQL-injection-driven
+   differential observed from these payloads.
+
+### Attempt 2: registration duplicate-username probe
+PUT /WebGoat/SqlInjectionAdvanced/register
+Body: username_reg=Tom&email_reg=tom%40example.com&password_reg=newpass123&confirm_password_reg=newpass123
+Response: {"assignment":"SqlInjectionChallenge","feedback":"User Tom created, please proceed to the login page.","lessonCompleted":false}
+-> No "username already taken" error was returned for a username ("Tom") that must already exist for the
+   challenge's goal to make sense. This is worth noting as a possible missing-uniqueness-validation signal,
+   but was not confirmed to be exploitable toward the "log in as Tom" goal within this run.
+
+### Attempt 3: login with freshly-registered Tom/newpass123
+POST /WebGoat/SqlInjectionAdvanced/login
+Body: username_login=Tom&password_login=newpass123
+Response: {"feedback":"Try to log in as Tom!","lessonCompleted":false}
+-> Different message than attempt 1/2 (which both said "Wrong username or password"). This confirms the
+   app distinguishes the literal string "Tom" from any other username BEFORE evaluating the real credential
+   check (an app-level check, not a SQL-injection-driven boolean oracle) - the in-app hint "look at the
+   different responses" refers to this literal-match behavior, not to a blind-SQLi oracle as initially
+   hypothesized from the preceding Blind SQL Injection concept page.
+
+### Attempt 4: boolean-oracle probe on username field
+POST /WebGoat/SqlInjectionAdvanced/login
+Body: username_login=Tom'+AND+'1'%3D'1&password_login=x
+Response: {"feedback":"Wrong username or password. Try again.","lessonCompleted":false}
+-> Reverts to the generic wrong-credentials message as soon as the username string no longer exactly equals
+   "Tom", confirming the differential is a literal string match, not database-driven.
+
+### Conclusion - reported honestly as INCONCLUSIVE, not fabricated as solved
+This assignment's intended exploit path was not identified within this run's reasonable effort budget.
+The classic bypass payloads that worked on earlier SqlInjection.lesson assignments did not succeed here,
+and the observed message differential is an application-level literal check rather than a SQL injection
+oracle. Per Section 3f's capture-then-replay method (not guess-then-hope), further blind guessing of the
+underlying table/column schema was deliberately NOT pursued, to avoid repeating the Run #3 pattern of
+unproductive guessing. This sub-step is marked "attempted - inconclusive" rather than solved; it is a
+candidate for a follow-up run with more time budget, not a confirmed finding.

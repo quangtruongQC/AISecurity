@@ -1,0 +1,57 @@
+[ {
+  "assignment" : {
+    "hints" : [ "jwt-secret-hint1", "jwt-secret-hint2", "jwt-secret-hint3" ],
+    "id" : null,
+    "name" : "JWTSecretKeyEndpoint",
+    "path" : "/WebGoat/JWT/secret"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : [ ],
+    "id" : null,
+    "name" : "JWTQuiz",
+    "path" : "/WebGoat/JWT/quiz"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : [ "jwt-kid-hint1", "jwt-kid-hint2", "jwt-kid-hint3", "jwt-kid-hint4", "jwt-kid-hint5", "jwt-kid-hint6" ],
+    "id" : null,
+    "name" : "JWTHeaderKIDEndpoint",
+    "path" : "/WebGoat/JWT/kid/delete"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : [ "jwt-change-token-hint1", "jwt-change-token-hint2", "jwt-change-token-hint3", "jwt-change-token-hint4", "jwt-change-token-hint5" ],
+    "id" : null,
+    "name" : "JWTVotesEndpoint",
+    "path" : "/WebGoat/JWT/votings"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : [ "jwt-jku-hint1", "jwt-jku-hint2", "jwt-jku-hint3", "jwt-jku-hint4", "jwt-jku-hint5" ],
+    "id" : null,
+    "name" : "JWTHeaderJKUEndpoint",
+    "path" : "/WebGoat/JWT/jku/delete"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : [ ],
+    "id" : null,
+    "name" : "JWTDecodeEndpoint",
+    "path" : "/WebGoat/JWT/decode"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : [ "jwt-refresh-hint1", "jwt-refresh-hint2", "jwt-refresh-hint3", "jwt-refresh-hint4" ],
+    "id" : null,
+    "name" : "JWTRefreshEndpoint",
+    "path" : "/WebGoat/JWT/refresh/checkout"
+  },
+  "solved" : false
+} ]

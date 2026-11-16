@@ -1,0 +1,9 @@
+{
+  "assignment" : "JWTVotesEndpoint",
+  "attemptWasMade" : true,
+  "feedback" : "Not a valid JWT token, please try again",
+  "feedbackArgs" : null,
+  "lessonCompleted" : false,
+  "output" : "io.jsonwebtoken.SignatureException: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.",
+  "outputArgs" : null
+}

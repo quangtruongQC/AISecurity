@@ -1,0 +1,9 @@
+{
+  "assignment" : "SqlInjectionLesson5b",
+  "attemptWasMade" : true,
+  "feedback" : "No results matched. Try Again.",
+  "feedbackArgs" : null,
+  "lessonCompleted" : false,
+  "output" : "Your query was: SELECT * From user_data WHERE Login_Count = 1 and userid= 1",
+  "outputArgs" : null
+}

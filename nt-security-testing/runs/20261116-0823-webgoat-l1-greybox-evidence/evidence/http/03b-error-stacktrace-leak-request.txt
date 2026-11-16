@@ -1,0 +1,22 @@
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 10.242.10.31:8007...
+* Established connection to 10.242.10.31 (10.242.10.31 port 8007) from 192.168.249.11 port 57320 
+* using HTTP/1.x
+> POST /WebGoat/SqlInjection/assignment5b HTTP/1.1
+> Host: 10.242.10.31:8007
+> User-Agent: curl/8.21.0
+> Accept: */*
+> Cookie: JSESSIONID=EE4FDB36E933CD9005A4F465CF749CB5
+> Content-Length: 20
+> Content-Type: application/x-www-form-urlencoded
+> 
+} [20 bytes data]
+* upload completely sent off: 20 bytes
+< HTTP/1.1 400 
+< Content-Type: application/json
+< Transfer-Encoding: chunked
+< Date: Mon, 16 Nov 2026 01:29:54 GMT
+< Connection: close
+< 
+{ [2471 bytes data]
+* shutting down connection #0

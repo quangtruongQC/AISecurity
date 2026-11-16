@@ -1,0 +1,25 @@
+[ {
+  "user" : "xtbuiquang",
+  "dateTime" : "2026-11-16, 01:35:56",
+  "text" : null
+}, {
+  "user" : "xtbuiquang",
+  "dateTime" : "2026-11-16, 00:44:51",
+  "text" : "<script>webgoat.customjs.phoneHome()</script>"
+}, {
+  "user" : "guest",
+  "dateTime" : "2026-11-14, 02:55:47",
+  "text" : "Can you post a comment, calling webgoat.customjs.phoneHome() ?"
+}, {
+  "user" : "guest",
+  "dateTime" : "2026-11-14, 02:55:47",
+  "text" : "This one is safe too."
+}, {
+  "user" : "webgoat",
+  "dateTime" : "2026-11-14, 02:55:47",
+  "text" : "This comment is safe"
+}, {
+  "user" : "secUriTy",
+  "dateTime" : "2026-11-14, 02:55:47",
+  "text" : "<script>console.warn('unit test me')</script>Comment for Unit Testing"
+} ]

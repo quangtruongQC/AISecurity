@@ -1,0 +1,29 @@
+17:17:20.142000 *   Trying 10.242.10.31:8007...
+17:17:20.279000 * Established connection to 10.242.10.31 (10.242.10.31 port 8007) from 192.168.249.38 port 61332 
+17:17:20.279000 * using HTTP/1.x
+17:17:20.279000 => Send header, 164 bytes (0xa4)
+0000: POST /WebGoat/login HTTP/1.1
+001e: Host: 10.242.10.31:8007
+0037: User-Agent: curl/8.21.0
+0050: Accept: */*
+005d: Content-Length: 41
+0071: Content-Type: application/x-www-form-urlencoded
+00a2: 
+17:17:20.279000 => Send data, 41 bytes (0x29)
+0000: username=xtbuiquang&password=[REDACTED-TEST-PASSWORD]
+17:17:20.279000 * upload completely sent off: 41 bytes
+17:17:20.500000 <= Recv header, 15 bytes (0xf)
+0000: HTTP/1.1 302 
+17:17:20.500000 * Added cookie JSESSIONID="F5D2D0300868512028A7A87A367557D8" for domain 10.242.10.31, path /WebGoat, expire 0
+17:17:20.500000 <= Recv header, 82 bytes (0x52)
+0000: Set-Cookie: JSESSIONID=F5D2D0300868512028A7A87A367557D8; Path=/W
+0040: ebGoat; HttpOnly
+17:17:20.500000 <= Recv header, 56 bytes (0x38)
+0000: Location: http://10.242.10.31:8007/WebGoat/welcome.mvc
+17:17:20.500000 <= Recv header, 19 bytes (0x13)
+0000: Content-Length: 0
+17:17:20.500000 <= Recv header, 37 bytes (0x25)
+0000: Date: Mon, 16 Nov 2026 10:17:20 GMT
+17:17:20.500000 <= Recv header, 2 bytes (0x2)
+0000: 
+17:17:20.500000 * Connection #0 to host 10.242.10.31:8007 left intact

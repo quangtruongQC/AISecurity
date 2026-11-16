@@ -1,0 +1,21 @@
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 10.242.10.31:8007...
+* Established connection to 10.242.10.31 (10.242.10.31 port 8007) from 192.168.249.11 port 53467 
+* using HTTP/1.x
+> POST /WebGoat/login HTTP/1.1
+> Host: 10.242.10.31:8007
+> User-Agent: curl/8.21.0
+> Accept: */*
+> Content-Type: application/x-www-form-urlencoded
+> Content-Length: 41
+> 
+} [41 bytes data]
+* upload completely sent off: 41 bytes
+< HTTP/1.1 302 
+* Added cookie JSESSIONID="EE4FDB36E933CD9005A4F465CF749CB5" for domain 10.242.10.31, path /WebGoat, expire 0
+< Set-Cookie: JSESSIONID=EE4FDB36E933CD9005A4F465CF749CB5; Path=/WebGoat; HttpOnly
+< Location: http://10.242.10.31:8007/WebGoat/welcome.mvc
+< Content-Length: 0
+< Date: Mon, 16 Nov 2026 01:24:57 GMT
+< 
+* Connection #0 to host 10.242.10.31:8007 left intact

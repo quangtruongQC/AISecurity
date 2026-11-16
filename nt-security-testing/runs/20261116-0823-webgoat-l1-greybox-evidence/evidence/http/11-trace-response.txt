@@ -1,0 +1,6 @@
+{
+  "timestamp" : "2026-11-16T01:33:34.800Z",
+  "status" : 405,
+  "error" : "Method Not Allowed",
+  "path" : "/WebGoat/start.mvc"
+}

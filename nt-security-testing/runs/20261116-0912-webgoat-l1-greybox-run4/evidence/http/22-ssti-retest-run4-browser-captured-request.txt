@@ -1,0 +1,32 @@
+Source: Chrome DevTools Network panel (live browser session, authenticated as xtbuiquang)
+Run: 20261116-0912-webgoat-l1-greybox-run4 (session window starts 2026-11-16T02:13:57.255Z)
+Method: capture-then-replay — submitted via the real "#postComment" UI control (same mechanism
+validated and documented in 21-stored-xss-run4-browser-captured-request.txt), resolving Run #3's
+inconclusive SSTI result which failed because the request format was guessed via curl.
+
+=== SSTI probe submission (POST /WebGoat/CrossSiteScriptingStored/stored-xss) ===
+Captured: Date header = Mon, 16 Nov 2026 02:16:07 GMT (within this run's window)
+Request Body:
+  {"text":"SSTI-PROBE-RUN4-${7*7}-#{7*7}-{{7*7}}"}
+Response Body:
+  {
+    "assignment" : "StoredXssComments",
+    "attemptWasMade" : true,
+    "feedback" : "We cannot see the payload in your submission, but XSS can be tricky. Look for the call back fired after the comments reload. If you see that and can put the correct value there and put it in, maybe you did succeed.",
+    "lessonCompleted" : false
+  }
+
+=== Retrieval (GET /WebGoat/CrossSiteScriptingStored/stored-xss) ===
+Captured: Date header = Mon, 16 Nov 2026 02:16:07 GMT
+Response Body (relevant excerpt):
+  {
+    "user" : "xtbuiquang",
+    "dateTime" : "2026-11-16, 02:16:07",
+    "text" : "SSTI-PROBE-RUN4-${7*7}-#{7*7}-{{7*7}}"
+  }
+
+Analysis: All three template-expression syntaxes (`${7*7}`, `#{7*7}`, `{{7*7}}`) were stored and
+returned VERBATIM, unevaluated — none were converted to "49". This is a definitive NEGATIVE result:
+the comment field does not perform server-side template evaluation (no SSTI). This supersedes Run #3's
+"inconclusive" status for this check (which could not even reach the endpoint due to a guessed request
+format); this run reached the endpoint successfully and obtained a conclusive answer.

@@ -1,0 +1,19 @@
+*   Trying 10.242.10.31:8007...
+* Established connection to 10.242.10.31 (10.242.10.31 port 8007) from 192.168.249.11 port 49250 
+* using HTTP/1.x
+> TRACE /WebGoat/start.mvc HTTP/1.1
+> Host: 10.242.10.31:8007
+> User-Agent: curl/8.21.0
+> Accept: */*
+> Cookie: JSESSIONID=EE4FDB36E933CD9005A4F465CF749CB5
+> 
+* Request completely sent off
+< HTTP/1.1 405 
+< Allow: HEAD, DELETE, POST, GET, OPTIONS, PUT
+< Content-Disposition: inline;filename=f.txt
+< Content-Type: application/json
+< Transfer-Encoding: chunked
+< Date: Mon, 16 Nov 2026 01:33:34 GMT
+< 
+{ [142 bytes data]
+* Connection #0 to host 10.242.10.31:8007 left intact

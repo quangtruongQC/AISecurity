@@ -1,0 +1,73 @@
+[ {
+  "assignment" : {
+    "hints" : null,
+    "id" : 2040,
+    "name" : "SqlInjectionLesson4",
+    "path" : "/WebGoat/SqlInjection/attack4"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : null,
+    "id" : 2043,
+    "name" : "SqlInjectionLesson8",
+    "path" : "/WebGoat/SqlInjection/attack8"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : null,
+    "id" : 2042,
+    "name" : "SqlInjectionLesson3",
+    "path" : "/WebGoat/SqlInjection/attack3"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : null,
+    "id" : 2038,
+    "name" : "SqlInjectionLesson10",
+    "path" : "/WebGoat/SqlInjection/attack10"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : null,
+    "id" : 2044,
+    "name" : "SqlInjectionLesson5a",
+    "path" : "/WebGoat/SqlInjection/assignment5a"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : null,
+    "id" : 2037,
+    "name" : "SqlInjectionLesson9",
+    "path" : "/WebGoat/SqlInjection/attack9"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : null,
+    "id" : 2039,
+    "name" : "SqlInjectionLesson5b",
+    "path" : "/WebGoat/SqlInjection/assignment5b"
+  },
+  "solved" : true
+}, {
+  "assignment" : {
+    "hints" : null,
+    "id" : 2041,
+    "name" : "SqlInjectionLesson2",
+    "path" : "/WebGoat/SqlInjection/attack2"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : null,
+    "id" : 2045,
+    "name" : "SqlInjectionLesson5",
+    "path" : "/WebGoat/SqlInjection/attack5"
+  },
+  "solved" : false
+} ]

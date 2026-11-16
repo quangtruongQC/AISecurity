@@ -1,0 +1,24 @@
+Lesson: SQL Injection (advanced) / assignment SqlInjectionLesson6b (confirms the password found via F-SQLI-06's UNION injection)
+Captured via Chrome DevTools Network panel (live browser interaction), Run #9, 2026-11-16T11:19:41Z
+
+### Request
+POST http://10.242.10.31:8007/WebGoat/SqlInjectionAdvanced/attack6b HTTP/1.1
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: JSESSIONID=EB5681DBBE34AF0FD5E2A4E855CBA117
+
+userid_6b=passW0rD
+
+### Response
+HTTP/1.1 200
+{
+  "assignment" : "SqlInjectionLesson6b",
+  "attemptWasMade" : true,
+  "feedback" : "Congratulations. You have successfully completed the assignment.",
+  "lessonCompleted" : true
+}
+
+### Analysis
+This step is a verification step for F-SQLI-06 (not a new, independently distinct vulnerability) - it
+confirms that the password exfiltrated via the UNION-based SQLi in SqlInjectionLesson6a ("passW0rD" for
+user "dave") was the real, correct password, i.e. that the cross-table data disclosure was accurate and not
+a parsing artifact. Rolled into F-SQLI-06's severity (HIGH), not counted as a separate finding.

@@ -1,0 +1,12 @@
+﻿Run 7 read-only route checks started: 2026-11-16T16:58:35.2041470+07:00
+
+[2026-11-16T16:58:35.3092268+07:00] GET http://10.242.10.31:8007/WebGoat/
+curl exit code: 28
+*   Trying 10.242.10.31:8007...
+* Connection timed out after 12012 milliseconds
+* closing connection #0
+curl: (28) Connection timed out after 12012 milliseconds
+STOP: target/route check failed; no later routes requested.
+
+Run ended: 2026-11-16T16:58:47.4870032+07:00
+RESULT: INCOMPLETE - route check failed with curl exit code 28.

@@ -1,0 +1,4 @@
+﻿*   Trying 10.242.10.31:8007...
+* Connection timed out after 12012 milliseconds
+* closing connection #0
+curl: (28) Connection timed out after 12012 milliseconds

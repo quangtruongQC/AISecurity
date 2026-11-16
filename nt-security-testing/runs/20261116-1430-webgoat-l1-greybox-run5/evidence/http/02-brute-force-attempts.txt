@@ -1,0 +1,6 @@
+Brute Force Test Results:
+Attempt 1: 155 bytes response
+Attempt 2: 155 bytes response
+Attempt 3: 155 bytes response
+Attempt 4: 155 bytes response
+Attempt 5: 155 bytes response

