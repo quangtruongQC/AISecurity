@@ -1,0 +1,49 @@
+[ {
+  "assignment" : {
+    "hints" : [ "xss-reflected-6a-hint-1", "xss-reflected-6a-hint-2", "xss-reflected-6a-hint-3", "xss-reflected-6a-hint-4" ],
+    "id" : null,
+    "name" : "CrossSiteScriptingLesson6a",
+    "path" : "/WebGoat/CrossSiteScripting/attack6a"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : [ ],
+    "id" : null,
+    "name" : "CrossSiteScriptingQuiz",
+    "path" : "/WebGoat/CrossSiteScripting/quiz"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : [ ],
+    "id" : null,
+    "name" : "CrossSiteScriptingLesson1",
+    "path" : "/WebGoat/CrossSiteScripting/attack1"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : [ "xss-dom-message-hint-1", "xss-dom-message-hint-2", "xss-dom-message-hint-3", "xss-dom-message-hint-4", "xss-dom-message-hint-5", "xss-dom-message-hint-6" ],
+    "id" : null,
+    "name" : "DOMCrossSiteScriptingVerifier",
+    "path" : "/WebGoat/CrossSiteScripting/dom-follow-up"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : [ "xss-reflected-5a-hint-1", "xss-reflected-5a-hint-2", "xss-reflected-5a-hint-3", "xss-reflected-5a-hint-4" ],
+    "id" : null,
+    "name" : "CrossSiteScriptingLesson5a",
+    "path" : "/WebGoat/CrossSiteScripting/attack5a"
+  },
+  "solved" : false
+}, {
+  "assignment" : {
+    "hints" : [ ],
+    "id" : null,
+    "name" : "DOMCrossSiteScripting",
+    "path" : "/WebGoat/CrossSiteScripting/phone-home-xss"
+  },
+  "solved" : false
+} ]

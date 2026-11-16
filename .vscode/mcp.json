@@ -1,0 +1,22 @@
+{
+  "servers": {
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    },
+    "owasp-asvs": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/nt-security-testing/dist/index.js"],
+      "env": {
+        "ASVS_SECURITY_TIER": "BALANCED",
+        "ASVS_RATE_LIMIT": "true",
+        "ASVS_RATE_LIMIT_REQUESTS": "100",
+        "ASVS_RATE_LIMIT_WINDOW_MS": "60000",
+        "LOG_LEVEL": "warn",
+        "LOG_FILE": "${workspaceFolder}/nt-security-testing/asvs-server.log"
+      }
+    }
+  }
+}
